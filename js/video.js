@@ -55,9 +55,9 @@ document.querySelector("#mute").addEventListener("click",function() {
 	}
 });
 
-document.querySelector("#slider").addEventListener("click", function(){
-  video.volume= document.querySelector("#slider").value/100;
-	document.querySelector("#volume").innerHTML= video.volume*100 + "%";
+document.querySelector("#slider").addEventListener("change", function(){
+    video.volume = this.value / 100;
+  	document.querySelector("#volume").textContent = video.volume *100 + "%";
 });
 document.querySelector("#vintage").addEventListener("click", function(){
 	video.classList.add('oldSchool');
