@@ -35,28 +35,35 @@ console.log("speed is" + video.playbackRate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	video.currentTime +=15
-	if( video.currentTime >= video.duration)
-	video.currentTime = 0
-
-console.log("current time is " + video.currentTime);
+	video.currentTime += 15;
+	if (video.currentTime >= video.duration){
+		video.currentTime=0;
+	}
+		
+	console.log("Video current time is ", video.currentTime);
 });
 
 document.querySelector("#mute").addEventListener("click",function() {
-	if (video.muted) {
-		video.muted = false;
-		mute.innerHTML = "Mute";
-		console.log("Muted");
-	  } else {
+	if (video.muted === false) {    
 		video.muted = true;
-		mute.innerHTML = "Unmute";
-		console.log("Unmuted");
-	  }
+		document.querySelector('#mute').innerHTML = 'Unmute';
+	}
+	else{
+		video.muted= false;
+		document.querySelector('#mute').innerHTML = 'Mute';
+
+	}
 });
 
-document.querySelector("#slider").addEventListener("change", function(){
-    video.volume = slider.value / 100;
-  volumeOutput.innerHTML = slider.value + "%";
-  volume.innerHTML = volume.value;
+document.querySelector("#slider").addEventListener("click", function(){
+  video.volume= document.querySelector("#slider").value/100;
+	document.querySelector("#volume").innerHTML= video.volume*100 + "%";
+});
+document.querySelector("#vintage").addEventListener("click", function(){
+	video.classList.add('oldSchool');
+});
+
+document.querySelector("#orig").addEventListener("click", function(){
+	video.classList.remove('oldSchool');
 });
 
